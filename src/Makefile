@@ -32,11 +32,11 @@ benchmark:
 .PHONY: benchmark
 
 dbt-run:
-	source ./.venv/bin/activate && cd dashboard/dbt && S3_BUCKET_NAME=${S3_BUCKET_NAME} dbt run
+	source ./.venv/bin/activate && cd dashboard/dbt && AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} S3_BUCKET_NAME=${S3_BUCKET_NAME} dbt run
 .PHONY: dbt-run
 
 dbt-docs:
-	source ./.venv/bin/activate && cd dashboard/dbt && S3_BUCKET_NAME=${S3_BUCKET_NAME} dbt docs generate && dbt docs serve
+	source ./.venv/bin/activate && cd dashboard/dbt && AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} S3_BUCKET_NAME=${S3_BUCKET_NAME} dbt docs generate && dbt docs serve
 .PHONY: dbt-docs
 
 dashboard:
